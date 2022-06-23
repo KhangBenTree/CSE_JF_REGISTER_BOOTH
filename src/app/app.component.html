@@ -1,0 +1,48 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <a class="navbar-brand" href="#">CSE JOBFAIR</a>
+  <ul class="nav navbar-nav">
+    <li>
+      <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/contact">Contact</a>
+    </li>
+    <li >
+      <a routerLink="/boothmap">Booth Map</a>
+    </li>
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin/admin">Admin</a>
+    </li>
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin/business">Business</a>
+    </li>
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin/booth">Booth</a>
+    </li>
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin/registration">Registration</a>
+    </li>
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin/approve">Approve</a>
+    </li>
+    <li *ngIf="!isAdmin && isAuth">
+      <a routerLink="/business/myregister">My Registration - My Booth</a>
+    </li>
+   
+  </ul>
+      <a  class="navbar-brand navbar-right" routerLink="/login">{{user.name}}</a>
+    
+ 
+    
+    
+ 
+  
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

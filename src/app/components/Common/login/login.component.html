@@ -1,0 +1,65 @@
+<div *ngIf="!isAuth">
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <form action="" method="POST" [formGroup]="formLogin" (ngSubmit)="onLogin()"
+            style="margin: auto; width: 500px;">
+            <h1 style="margin: align;">Form login</h1>
+            <hr>
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="Input field">
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Input field">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-primary" (click)="check()">Check</button>
+            <button routerLink="/register" type="button" class="btn btn-default" >Register</button>
+        </form>
+
+    </div>
+</div>
+<div *ngIf="isAuth" style="margin: auto; width: 400px;">
+
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong *ngIf="isAdmin">Admin!</strong> <strong *ngIf="!isAdmin">Business!</strong> Bạn đã đăng nhập ...
+
+    </div>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-8">
+                            <label class="labels">Name</label>
+                            <input type="text" class="form-control" placeholder="first name" value={{user.name}}>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-10">
+                            <label class="labels">PhoneNumber</label>
+                            <input type="text" class="form-control" placeholder="enter phone number" value={{user.phone}}>
+                        </div>
+
+                        <div class="col-md-10"><label class="labels">Email</label><input type="text"
+                                class="form-control" placeholder="enter email id" value={{user.email}}></div>
+                    </div>
+                    <hr>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="button" >Save Profile</button>
+                        <b>&nbsp;</b><button routerLink="/login" type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

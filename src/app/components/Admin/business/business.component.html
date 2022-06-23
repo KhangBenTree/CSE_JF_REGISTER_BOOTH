@@ -1,0 +1,39 @@
+<div *ngIf="isAuth">
+<h1>Business Manager</h1>
+<hr>
+<button routerLink="/register" type="button" class="btn btn-lg btn-primary" >ADD BUSINESS</button>
+<hr>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr *ngFor="let s of data">
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.email}}</td>
+            <td>{{s.phone}}</td>
+            <td> 
+
+                <button type="button" class="btn btn-primary" (click)="showPrompt()">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="onDelete(s.id)">Del</button> 
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div *ngIf="!isAuth">
+    
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Error 403!</strong> Bạn chưa đăng nhập
+    </div>
+    
+</div>

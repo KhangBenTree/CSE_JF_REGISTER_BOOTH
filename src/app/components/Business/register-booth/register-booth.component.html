@@ -1,0 +1,50 @@
+<div>       
+<div >
+    <h1>
+        <b>Register Booth 
+            <b class="badge" style="height:80px;width:80px;">
+                <h1>{{idbooth}}</h1>
+            </b>  - Owner 
+            <span *ngIf="!Owner" class="label label-lg label-default" style=" border:1px solid black">None</span>
+            <span *ngIf="Owner" class="label label-lg label-primary" style=" border:1px solid black">{{Owner}}</span>
+        </b>
+    </h1> 
+    <button *ngIf="!isAdmin && !Owner && Auth" class="btn btn-lg btn-primary" (click)="Register()" routerLink="business/registerbooth/{{idbooth}}">Register</button>
+    <button *ngIf="isAdmin || Owner || !Auth" class="btn btn-lg btn-primary" disabled>Register</button>&nbsp;
+    <b *ngIf="!Auth" class="alert alert-warning">
+        <strong>Bạn là ai!</strong> Đăng nhập để có thể đăng ký gian hàng
+    </b>
+    <b *ngIf="isAdmin" class="alert alert-warning">
+        <strong>Bạn là Admin mà!</strong> Không thể đăng ký gian hàng
+    </b>
+    <b *ngIf="!isAdmin && Owner" class="alert alert-warning">
+        <strong>Gian hàng này có chủ rồi !</strong> Không thể đăng ký gian hàng. Liên hệ admin hoặc chủ gian hàng này để giải quyết
+    </b>
+</div>
+
+  
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Mail</th>
+            <th>Time Register</th>
+            <th>isApprove</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr *ngFor="let s of data | orderBy : 'time_register'">
+            <td>{{s.name}}</td>
+            <td>{{s.email}}</td>
+            <td>{{s.time_register.substring(0,10)}}</td>
+            <td *ngIf="s.approve == 0" ><span class="badge" style="background-color: red">Deny</span></td>
+            <td *ngIf="s.approve == 1" ><span class="badge" style="background-color: blue">Approve</span></td>
+            <td *ngIf="s.approve != 0 && s.approve != 1" ><span class="badge" style="background-color: orange">Wait</span></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+     

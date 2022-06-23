@@ -1,0 +1,25 @@
+<h1>
+<div stype="margin: center">
+    <button type="button" class="btn btn-default" style="height:40px;width:40px; border:1px solid black"></button> Free &nbsp; &nbsp; &nbsp; &nbsp; 
+    <button type="button" class="btn btn-primary" style="height:40px;width:40px ; border:1px solid black"></button> Is Booked &nbsp; &nbsp; &nbsp; &nbsp;
+    </div>
+</h1>
+
+<div id="rectangle" style="width: 1100px; height: 200px; background-color:lightblue;  text-align: center;"><br><br><br><h1>H6 BUILDING</h1></div>
+<div  id="rectangle" style="width: 195px; height: 150px; background-color:lightblue;  position:absolute; text-align: center;"></div>
+  
+<br>
+
+<b *ngFor="let s of data">
+    <b *ngIf="s.id == 1 || s.id == 15"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b>
+    <button *ngIf="!s.owner" type="button" class="btn btn-default" style="height:40px;width:40px; border:1px solid black" routerLink="/business/registerbooth/{{s.id}}">{{s.id}}</button>
+
+    <button *ngIf="s.owner" type="button" class="btn btn-primary" style="height:40px;width:40px; border:1px solid black" routerLink="/business/registerbooth/{{s.id}}">{{s.id}}</button>
+
+    &nbsp;
+    <b *ngIf="s.id == 14 || s.id == 28 || s.id == 46"><br><br></b>
+    <b *ngIf="s.id == 4 || s.id == 8 || s.id == 12 || s.id == 18 || s.id == 22 || s.id == 26 || s.id == 32 || s.id == 36 || s.id == 40 || s.id == 44 || s.id == 50 || s.id == 54 || s.id == 58 || s.id == 62">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b>
+    <b *ngIf="s.id == 28"><br><br></b>
+    
+</b><hr>
+<div style="text-align:center"> <h4>Click on the buttons above to get more information </h4></div>

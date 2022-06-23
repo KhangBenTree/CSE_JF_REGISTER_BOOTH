@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <form action="" method="POST" [formGroup]="formRegister" (ngSubmit)="register()"
+        style="margin: auto; width: 500px;">
+        <h1 style="margin: align;">Business Register</h1>
+        <div style="text-align:right" >
+        <span class="badge badge-lg"><h5>ID Business : {{maxId +1 }}</h5></span>
+        </div>
+        <div class="form-group">
+            <label for="">Name Business</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Input field">
+        </div>
+        <div class="form-group">
+            <label for="">Name Represent</label>
+            <input type="text" class="form-control" formControlName="representation" placeholder="Input field">
+        </div>
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input type="text" class="form-control" formControlName="phone" placeholder="Input field">
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" formControlName="email" placeholder="Input field">
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="text" class="form-control" formControlName="password" placeholder="Input field">
+        </div>
+        <div class="check">
+            <label for="">Confirm Password</label>
+            <input type="text" class="form-control" placeholder="Input field">
+        </div>
+        <b>&nbsp;</b>
+        <div style="text-align:center">
+            <button type="submit" class="btn btn-lg btn-primary">Register</button>
+        </div>
+    </form>
+
+</div>

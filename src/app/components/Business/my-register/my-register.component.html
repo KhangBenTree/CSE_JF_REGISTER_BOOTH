@@ -1,0 +1,58 @@
+<h1>My Register Booth</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Booth Number</th>
+                <th>Time Register</th>
+                <th>Approve</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr *ngFor="let s of myregister">
+                <td>{{s.booth_id}}</td>
+                <td>{{s.time_register.substring(0,10)}}</td>
+                <td> 
+                    <b *ngIf="s.approve == 0" ><span class="badge" style="background-color: red">Deny</span></b>
+                    <b *ngIf="s.approve == 1" ><span class="badge" style="background-color: blue">Approve</span></b>
+                    <b *ngIf="s.approve != 0 && s.approve != 1" ><span class="badge" style="background-color: orange">Wait</span></b>
+                    
+                    
+                     <b *ngIf="s.approve == 0 || s.approve == 1"> at {{s.time_approve.substring(0,10)}}  </b>
+                </td>
+                <td> 
+                    <button *ngIf="s.approve != 0 && s.approve != 1" type="button" class="btn btn-sm btn-danger" (click)="onDeleteR(s.id)">Remove</button> 
+    
+                </td>
+            </tr>
+    </tbody>
+    </table>
+</div>
+
+<h1>My Booth</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Booth Number</th>
+                <th><b style="margin-right: 70px;">Size</b> </th>
+                <th><b style="margin-right: 90px;">Price</b></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr *ngFor="let s of mybooth">
+                <td>{{s.id}}</td>
+                <td>{{s.size}}</td>
+                <td>{{s.price}}</td>
+                <td> 
+                    <button type="button" class="btn btn-danger" (click)="onDeleteB(s.id)">Remove</button> 
+    
+                </td>
+            </tr>
+    </tbody>
+    </table>
+</div>
