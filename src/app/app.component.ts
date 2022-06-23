@@ -15,7 +15,6 @@ export class AppComponent {
     const token = localStorage.getItem('token');
     const name = localStorage.getItem('name');
     console.log(name,token)
-   
   }
   ngOnInit(){
     if(localStorage.getItem('user')) this.user = JSON.parse(localStorage.getItem('user')!);
